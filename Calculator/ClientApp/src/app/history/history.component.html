@@ -1,0 +1,22 @@
+﻿<h4 id="tableLabel">Calculator History</h4>
+
+<p *ngIf="!calcHistories && !unAuthorized"><em>Loading...</em></p>
+<p *ngIf="unAuthorized">You don't have access to view history.</p>
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="calcHistories">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Input</th>
+            <th>Result</th>
+            <th>Message</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let calcHis of calcHistories">
+            <td>{{ calcHis.EvaluateAt | date:"dd-MMM-yyyy HH:mm:ss" }}</td>
+            <td>{{ calcHis.Input }}</td>
+            <td>{{ calcHis.Result }}</td>
+            <td>{{ calcHis.ErrorMessage }}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,40 @@
+﻿<div>
+    <h4>Evaluate</h4>
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+            <div class="form-group row">
+                <div class="col-12">
+                    <label>Input</label>
+                </div>
+                <div class="col-12">
+                    <input type="text" value="{{input}}" (change)="onInputChange($event)" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-12 text-center">
+                    <button (click)="eval()" class="btn btn-primary">Evaluate</button>
+                </div>
+            </div>
+            <div class="form-group row" *ngIf="evaluated && evalResult.Succeeded">
+                <div class="col-12">
+                    <label>Result</label>
+                </div>
+                <div class="col-12">
+                    <input type="text" disabled="disabled" value="{{evalResult.Result}}" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row" *ngIf="evaluated && !evalResult.Succeeded">
+                <div class="col-12">
+                    <label>Error</label>
+                </div>
+                <div class="col-12">
+                    <span class="text-danger">{{evalResult.ErrorMessage}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
